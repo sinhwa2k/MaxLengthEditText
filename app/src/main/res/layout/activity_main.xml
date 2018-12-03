@@ -6,17 +6,28 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <com.sinhwa2k.maxlengthedittext.MaxLengthEditText
+    <TableLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="hint"
-        android:text="text"
-        android:maxLength="40"
-        android:textSize="20sp"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
-        app:maxLengthTextSize="16sp"
-        app:maxLengthIncorrectColor="@color/colorAccent"
-        app:maxLengthCorrectColor="@color/colorPrimary" />
+        android:layout_height="wrap_content">
+
+        <TableRow
+            android:layout_width="match_parent">
+            <TextView
+                android:text="test"
+                android:layout_width="100dp"/>
+
+            <com.sinhwa2k.maxlengthedittext.MaxLengthEditText
+                android:layout_weight="1"
+                android:hint="hint"
+                android:text="text"
+                android:maxLength="40"
+                android:textSize="20sp"
+                android:layout_marginRight="40dp"
+                app:maxLengthTextSize="16sp"
+                app:maxLengthIncorrectColor="@color/colorAccent"
+                app:maxLengthCorrectColor="@color/colorPrimary" />
+        </TableRow>
+
+    </TableLayout>
 
 </android.support.constraint.ConstraintLayout>

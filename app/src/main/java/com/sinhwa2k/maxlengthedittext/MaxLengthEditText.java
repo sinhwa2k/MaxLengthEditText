@@ -64,6 +64,7 @@ public class MaxLengthEditText extends AppCompatEditText {
 
         maxDrawTextWidth = (int) paintCorrect.measureText(maxLength + "/" + maxLength);
         yPos = (int) Math.abs((paintCorrect.descent() + paintCorrect.ascent()) / 2);
+        setPadding(getPaddingLeft(), getPaddingTop(), getPaddingRight() + maxDrawTextWidth, getPaddingBottom());
         processData();
     }
 
@@ -93,12 +94,7 @@ public class MaxLengthEditText extends AppCompatEditText {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        canvas.drawText(drawText, getWidth() - getPaddingRight(), getHeight() / 2 + yPos, paint);
-    }
-
-    @Override
-    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        super.onMeasure(widthMeasureSpec - maxDrawTextWidth, heightMeasureSpec);
+        canvas.drawText(drawText, getScrollX() + getWidth(), getHeight() / 2 + yPos, paint);
     }
 
     @Override
